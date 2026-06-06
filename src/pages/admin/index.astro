@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdminApp from '../../components/AdminApp.jsx';
+---
+
+<Layout title="Admin Control | FAM Desarrollos">
+	<main class="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 selection:text-cyan-200">
+		<AdminApp client:only="react" />
+	</main>
+</Layout>
