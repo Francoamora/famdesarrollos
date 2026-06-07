@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { ShoppingBag, Store, Building2, LayoutTemplate, Settings, Briefcase, Users, HeartPulse, Home, Utensils, Dumbbell, Bot } from 'lucide-react';
 
 const solutions = [
@@ -91,6 +91,81 @@ const colorVariants = {
   blue: 'text-blue-400 bg-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.2)]',
 };
 
+function SolutionCard({ item }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const hoverTimer = useRef(null);
+
+  const handleMouseEnter = () => {
+    // Si ya está dada vuelta, no hacer nada
+    if (isFlipped) return;
+    hoverTimer.current = setTimeout(() => {
+      setIsFlipped(true);
+    }, 1500); // 1.5 segundos
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current);
+    }
+    // Opcional: Deshacer la voltereta al sacar el mouse, o dejarla dada vuelta. 
+    // Vamos a deshacerla suavemente para que siga la magia.
+    setIsFlipped(false);
+  };
+
+  return (
+    <div 
+      className="snap-center shrink-0 w-[85vw] md:w-[350px] h-[340px] group cursor-pointer"
+      style={{ perspective: '1000px' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div 
+        className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover:-translate-y-3"
+        style={{ 
+          transformStyle: 'preserve-3d', 
+          transform: isFlipped ? 'rotateY(180deg) translateY(-12px)' : 'rotateY(0deg) translateY(0px)'
+        }}
+      >
+        
+        {/* Cara Frontal */}
+        <div 
+          className="absolute inset-0 bg-[#0a0a0a] p-8 rounded-[2rem] border border-white/5 text-left transition-all duration-300 group-hover:bg-[#111] group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] group-hover:border-white/10 flex flex-col justify-start"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${colorVariants[item.color]}`}>
+            <item.icon size={24} />
+          </div>
+          <h3 className="text-2xl font-bold mb-3 text-white tracking-tight">{item.title}</h3>
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed">{item.desc}</p>
+        </div>
+
+        {/* Cara Trasera (Se revela a los 5 segundos) */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0a0a0a] p-8 rounded-[2rem] border border-cyan-500/30 text-center flex flex-col justify-center items-center shadow-[0_0_40px_rgba(6,182,212,0.15)]"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${colorVariants[item.color]} animate-pulse`}>
+            <item.icon size={32} />
+          </div>
+          <h3 className="text-xl font-bold mb-3 text-white">¿Te interesa?</h3>
+          <p className="text-gray-400 text-sm mb-6 leading-relaxed">Podemos adaptar esta solución exactamente a tu modelo de negocio.</p>
+          <a 
+            href={`https://wa.me/5493482277706?text=Hola,%20estoy%20interesado%20en%20la%20soluci%C3%B3n:%20${encodeURIComponent(item.title)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full py-3.5 bg-[#25D366] text-black font-bold rounded-xl hover:bg-[#20b858] transition-colors shadow-[0_0_20px_rgba(37,211,102,0.3)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Contactanos por WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function SolutionsCarousel() {
   const scrollRef = useRef(null);
 
@@ -132,34 +207,17 @@ export default function SolutionsCarousel() {
         </div>
       </div>
 
-      {/* 
-        The mask-image creates the smooth fade effect on the left and right edges,
-        solving the "cut off" feeling.
-      */}
       <div className="relative w-full max-w-[1400px] mx-auto">
-        <div 
-          className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#030303] to-transparent z-10 pointer-events-none"
-        ></div>
-        <div 
-          className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#030303] to-transparent z-10 pointer-events-none"
-        ></div>
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#030303] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#030303] to-transparent z-10 pointer-events-none"></div>
 
         <div 
           ref={scrollRef}
-          className="flex overflow-x-auto gap-6 px-12 pb-12 pt-4 snap-x snap-mandatory scrollbar-hide"
+          className="flex overflow-x-auto gap-6 px-12 pb-16 pt-12 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => (
-            <div 
-              key={index}
-              className="snap-center shrink-0 w-[85vw] md:w-[350px] bg-[#0a0a0a] p-8 rounded-[2rem] border border-white/5 text-left transition-all duration-300 hover:bg-[#111] hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-white/10 group cursor-pointer"
-            >
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${colorVariants[item.color]}`}>
-                <item.icon size={24} />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-white tracking-tight">{item.title}</h3>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">{item.desc}</p>
-            </div>
+            <SolutionCard key={index} item={item} />
           ))}
         </div>
       </div>

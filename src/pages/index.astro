@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Monitor, Briefcase, Rocket, Code, Database, LineChart, Cpu, Network, Zap, ArrowRight, Building, MessageCircle, Newspaper, Store, Wrench, Sparkles, ArrowUpRight } from 'lucide-react';
 import TerminalAbout from '../components/TerminalAbout.jsx';
 import SolutionsCarousel from '../components/SolutionsCarousel.jsx';
+import ProcessSection from '../components/ProcessSection.jsx';
 import FaqSection from '../components/FaqSection.jsx';
 import ContactSection from '../components/ContactSection.jsx';
 ---
@@ -74,6 +75,11 @@ import ContactSection from '../components/ContactSection.jsx';
 		</div>
 
 		<SolutionsCarousel client:visible />
+
+		<!-- Process Section -->
+		<div class="border-y border-white/5 bg-[#030303]">
+			<ProcessSection client:visible />
+		</div>
 
 		<!-- The Engine Section (Light Theme Breakout) -->
 		<section id="arquitectura" class="w-full bg-[#FAFAFA] text-black py-32 border-y border-white/10 relative z-10">
