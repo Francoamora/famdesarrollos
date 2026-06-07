@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const terminalLines = [
+const terminalLinesEs = [
   { text: "FAM_OS v2.4.1 inicializando...", delay: 500, type: "system" },
   { text: "Estableciendo conexión segura...", delay: 800, type: "system" },
   { text: "Conexión establecida. Acceso concedido.", delay: 400, type: "success" },
@@ -19,11 +19,32 @@ const terminalLines = [
   { text: "SISTEMA LISTO. ESPERANDO NUEVOS DESAFÍOS...", delay: 600, type: "success" }
 ];
 
-export default function TerminalAbout() {
+const terminalLinesEn = [
+  { text: "FAM_OS v2.4.1 initializing...", delay: 500, type: "system" },
+  { text: "Establishing secure connection...", delay: 800, type: "system" },
+  { text: "Connection established. Access granted.", delay: 400, type: "success" },
+  { text: "Loading profile: FAM Desarrollos", delay: 600, type: "system" },
+  { text: " ", delay: 200, type: "empty" },
+  { text: "> WHO ARE WE?", delay: 1000, type: "command" },
+  { text: "We are a team passionate about technology.", delay: 800, type: "output" },
+  { text: "We transform your ideas into top-tier digital products.", delay: 800, type: "output" },
+  { text: " ", delay: 300, type: "empty" },
+  { text: "> WHAT DO WE DO?", delay: 1000, type: "command" },
+  { text: "[*] Online stores ready to sell", delay: 400, type: "output" },
+  { text: "[*] Custom inventory and financial systems", delay: 400, type: "output" },
+  { text: "[*] Ultra-fast and modern websites", delay: 400, type: "output" },
+  { text: " ", delay: 300, type: "empty" },
+  { text: "> STATUS?", delay: 800, type: "command" },
+  { text: "SYSTEM READY. AWAITING NEW CHALLENGES...", delay: 600, type: "success" }
+];
+
+export default function TerminalAbout({ lang = 'es' }) {
   const [lines, setLines] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [currentText, setCurrentText] = useState("");
+
+  const terminalLines = lang === 'en' ? terminalLinesEn : terminalLinesEs;
 
   useEffect(() => {
     if (currentIndex >= terminalLines.length) return;
@@ -32,7 +53,6 @@ export default function TerminalAbout() {
     
     let timer;
     if (currentLineData.type === 'command' || currentLineData.type === 'system') {
-      // Typewriter effect for commands
       setIsTyping(true);
       let charIndex = 0;
       timer = setInterval(() => {
@@ -49,7 +69,6 @@ export default function TerminalAbout() {
         }
       }, 30);
     } else {
-      // Instant print for output/success/empty
       timer = setTimeout(() => {
         setLines(prev => [...prev, { text: currentLineData.text, type: currentLineData.type }]);
         setCurrentIndex(prev => prev + 1);
@@ -60,11 +79,11 @@ export default function TerminalAbout() {
       if (timer) clearInterval(timer);
       if (timer) clearTimeout(timer);
     };
-  }, [currentIndex]);
+  }, [currentIndex, lang]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-12 perspective-1000 group">
-      <div className="relative bg-[#050505] border border-white/10 rounded-xl overflow-hidden shadow-[0_0_80px_rgba(6,182,212,0.15)] transform rotate-x-12 group-hover:rotate-x-0 transition-transform duration-1000 min-h-[400px] flex flex-col font-mono text-sm sm:text-base">
+    <div className="w-full max-w-4xl mx-auto mt-12" style={{ perspective: '1000px' }}>
+      <div className="relative group bg-[#050505] border border-white/10 rounded-xl overflow-hidden shadow-[0_0_80px_rgba(6,182,212,0.15)] transition-transform duration-1000 min-h-[400px] flex flex-col font-mono text-sm sm:text-base hover:shadow-[0_0_80px_rgba(6,182,212,0.3)]">
         
         {/* Terminal Header */}
         <div className="bg-[#111] border-b border-white/10 px-4 py-3 flex items-center gap-2">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const faqs = [
+const faqsEs = [
   {
     question: "¿Cuánto tiempo demora el desarrollo de un proyecto?",
     answer: "El tiempo de entrega se ajusta a la complejidad y urgencia de cada proyecto. Diseñamos un plan de trabajo estructurado para cumplir con las fechas que tu negocio necesite, priorizando siempre la calidad del producto final."
@@ -20,8 +20,31 @@ const faqs = [
   }
 ];
 
-export default function FaqSection() {
+const faqsEn = [
+  {
+    question: "How long does a project development take?",
+    answer: "The delivery time is adjusted to the complexity and urgency of each project. We design a structured work plan to meet your business deadlines, always prioritizing the quality of the final product."
+  },
+  {
+    question: "Do you offer maintenance and hosting services?",
+    answer: "Yes! We handle all Cloud infrastructure, database security, and continuous monitoring so you can focus entirely on growing your business."
+  },
+  {
+    question: "What technologies do you use for development?",
+    answer: "Every project is unique, which is why we carefully select the technology stack that best fits your real needs. We use modern, secure, and high-performance platforms to ensure your system is fast, user-friendly, and capable of scaling with your business."
+  },
+  {
+    question: "Do I have to pay a monthly license for custom software?",
+    answer: "No. If the development is custom, the product belongs to you. You will only pay the actual server costs and an optional continuous technical support plan."
+  }
+];
+
+export default function FaqSection({ lang = 'es' }) {
   const [openIndex, setOpenIndex] = useState(null);
+
+  const faqs = lang === 'en' ? faqsEn : faqsEs;
+  const title = lang === 'en' ? "Frequently Asked Questions" : "Preguntas Frecuentes";
+  const subtitle = lang === 'en' ? "Resolving your main doubts before taking the first step." : "Resolvemos tus dudas principales antes de dar el primer paso.";
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -30,8 +53,8 @@ export default function FaqSection() {
   return (
     <section id="faq" className="w-full max-w-3xl mx-auto py-24 px-4 relative z-10">
       <div className="mb-12 text-center" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Preguntas Frecuentes</h2>
-        <p className="text-gray-400 text-lg">Resolvemos tus dudas principales antes de dar el primer paso.</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">{title}</h2>
+        <p className="text-gray-400 text-lg">{subtitle}</p>
       </div>
 
       <div className="space-y-4">

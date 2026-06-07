@@ -1,78 +1,105 @@
 import React, { useRef, useState } from 'react';
 import { ShoppingBag, Store, Building2, LayoutTemplate, Settings, Briefcase, Users, HeartPulse, Home, Utensils, Dumbbell, Bot } from 'lucide-react';
 
-const solutions = [
+const solutionsEs = [
   {
-    icon: ShoppingBag,
-    color: 'cyan',
-    title: 'Tu tienda 24/7',
+    icon: ShoppingBag, color: 'cyan', title: 'Tu tienda 24/7',
     desc: 'Vendé en piloto automático. E-commerce rápido, carrito de compras optimizado y pasarelas de pago integradas.'
   },
   {
-    icon: Store,
-    color: 'orange',
-    title: 'Locales Comerciales',
+    icon: Store, color: 'orange', title: 'Locales Comerciales',
     desc: 'Tené el control total de tu negocio. Gestión de stock en tiempo real, alertas de inventario y facturación fácil para que nada se te escape.'
   },
   {
-    icon: Bot,
-    color: 'indigo',
-    title: 'Automatización de Procesos',
+    icon: Bot, color: 'indigo', title: 'Automatización de Procesos',
     desc: 'Olvidate de las tareas repetitivas. Sincronizamos tus herramientas y automatizamos respuestas frecuentes para que tu equipo se enfoque en lo importante.'
   },
   {
-    icon: Users,
-    color: 'red',
-    title: 'Clubes y Asociaciones',
+    icon: Users, color: 'red', title: 'Clubes y Asociaciones',
     desc: '¿Tenés un club? Administrá el alta de socios, cobro de cuotas, reserva de turnos y gestión de inversiones en un solo lugar.'
   },
   {
-    icon: Dumbbell,
-    color: 'lime',
-    title: 'Gimnasios y Centros',
+    icon: Dumbbell, color: 'lime', title: 'Gimnasios y Centros',
     desc: 'Controlá membresías, cobros mensuales, rutinas y los accesos de tus alumnos de forma 100% automatizada.'
   },
   {
-    icon: Building2,
-    color: 'emerald',
-    title: 'Instituciones y Finanzas',
+    icon: Building2, color: 'emerald', title: 'Instituciones y Finanzas',
     desc: 'Sistemas robustos para mantener en orden instituciones, municipios y la gestión de finanzas complejas.'
   },
   {
-    icon: HeartPulse,
-    color: 'rose',
-    title: 'Clínicas y Consultorios',
+    icon: HeartPulse, color: 'rose', title: 'Clínicas y Consultorios',
     desc: 'Gestión inteligente de turnos médicos, historias clínicas digitales y recordatorios automáticos para pacientes.'
   },
   {
-    icon: LayoutTemplate,
-    color: 'purple',
-    title: 'Landing Pages',
+    icon: LayoutTemplate, color: 'purple', title: 'Landing Pages',
     desc: 'Diseño de alto impacto enfocado 100% en conversión. Transformamos visitas fugaces en clientes fieles.'
   },
   {
-    icon: Home,
-    color: 'teal',
-    title: 'Inmobiliarias',
+    icon: Home, color: 'teal', title: 'Inmobiliarias',
     desc: 'Catálogos dinámicos de propiedades, gestión integral de alquileres y automatización de contratos para tu agencia.'
   },
   {
-    icon: Utensils,
-    color: 'yellow',
-    title: 'Gastronomía Moderna',
+    icon: Utensils, color: 'yellow', title: 'Gastronomía Moderna',
     desc: 'Menú digital con QR, toma de pedidos ágil, integración con cocina y control de mesas en tiempo real.'
   },
   {
-    icon: Briefcase,
-    color: 'pink',
-    title: 'Profesionales Independientes',
+    icon: Briefcase, color: 'pink', title: 'Profesionales Independientes',
     desc: '¿Sos contador, abogado o especialista? Desarrollamos herramientas a medida para ordenar tu información y gestionar a tus clientes.'
   },
   {
-    icon: Settings,
-    color: 'blue',
-    title: 'Lo imaginás, lo armamos',
+    icon: Settings, color: 'blue', title: 'Lo imaginás, lo armamos',
     desc: 'Sistemas a medida adaptados al 100% a las reglas de tu negocio. Arquitectura escalable y sin límites.'
+  }
+];
+
+const solutionsEn = [
+  {
+    icon: ShoppingBag, color: 'cyan', title: 'Your 24/7 Store',
+    desc: 'Sell on autopilot. Fast e-commerce, optimized shopping cart, and integrated payment gateways.'
+  },
+  {
+    icon: Store, color: 'orange', title: 'Retail Stores',
+    desc: 'Take full control of your business. Real-time inventory management, stock alerts, and easy billing so nothing slips away.'
+  },
+  {
+    icon: Bot, color: 'indigo', title: 'Process Automation',
+    desc: 'Forget repetitive tasks. We sync your tools and automate frequent responses so your team focuses on what matters.'
+  },
+  {
+    icon: Users, color: 'red', title: 'Clubs and Associations',
+    desc: 'Running a club? Manage member registration, fee collection, bookings, and investments all in one place.'
+  },
+  {
+    icon: Dumbbell, color: 'lime', title: 'Gyms & Fitness Centers',
+    desc: 'Control memberships, monthly payments, routines, and student access in a 100% automated way.'
+  },
+  {
+    icon: Building2, color: 'emerald', title: 'Institutions & Finance',
+    desc: 'Robust systems to keep institutions, municipalities, and complex financial management in perfect order.'
+  },
+  {
+    icon: HeartPulse, color: 'rose', title: 'Clinics & Practices',
+    desc: 'Smart medical appointment management, digital health records, and automated patient reminders.'
+  },
+  {
+    icon: LayoutTemplate, color: 'purple', title: 'Landing Pages',
+    desc: 'High-impact design focused 100% on conversion. We transform brief visits into loyal customers.'
+  },
+  {
+    icon: Home, color: 'teal', title: 'Real Estate',
+    desc: 'Dynamic property catalogs, comprehensive rental management, and automated contracts for your agency.'
+  },
+  {
+    icon: Utensils, color: 'yellow', title: 'Modern Gastronomy',
+    desc: 'Digital QR menus, agile ordering, kitchen integration, and real-time table control.'
+  },
+  {
+    icon: Briefcase, color: 'pink', title: 'Independent Professionals',
+    desc: 'Are you an accountant, lawyer, or specialist? We develop custom tools to organize your info and manage clients.'
+  },
+  {
+    icon: Settings, color: 'blue', title: 'You Imagine It, We Build It',
+    desc: 'Custom systems adapted 100% to your business rules. Scalable architecture with no limits.'
   }
 ];
 
@@ -91,24 +118,24 @@ const colorVariants = {
   blue: 'text-blue-400 bg-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.2)]',
 };
 
-function SolutionCard({ item }) {
+function SolutionCard({ item, lang }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const hoverTimer = useRef(null);
 
+  const tFront = lang === 'en' ? { interest: 'Interested?', subtitle: 'We can adapt this solution exactly to your business model.', cta: 'Contact us on WhatsApp' } 
+                                : { interest: '¿Te interesa?', subtitle: 'Podemos adaptar esta solución exactamente a tu modelo de negocio.', cta: 'Contactanos por WhatsApp' };
+
   const handleMouseEnter = () => {
-    // Si ya está dada vuelta, no hacer nada
     if (isFlipped) return;
     hoverTimer.current = setTimeout(() => {
       setIsFlipped(true);
-    }, 1500); // 1.5 segundos
+    }, 1500); 
   };
 
   const handleMouseLeave = () => {
     if (hoverTimer.current) {
       clearTimeout(hoverTimer.current);
     }
-    // Opcional: Deshacer la voltereta al sacar el mouse, o dejarla dada vuelta. 
-    // Vamos a deshacerla suavemente para que siga la magia.
     setIsFlipped(false);
   };
 
@@ -140,7 +167,7 @@ function SolutionCard({ item }) {
           <p className="text-gray-400 text-sm md:text-base leading-relaxed">{item.desc}</p>
         </div>
 
-        {/* Cara Trasera (Se revela a los 5 segundos) */}
+        {/* Cara Trasera */}
         <div 
           className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0a0a0a] p-8 rounded-[2rem] border border-cyan-500/30 text-center flex flex-col justify-center items-center shadow-[0_0_40px_rgba(6,182,212,0.15)]"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
@@ -148,16 +175,16 @@ function SolutionCard({ item }) {
           <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${colorVariants[item.color]} animate-pulse`}>
             <item.icon size={32} />
           </div>
-          <h3 className="text-xl font-bold mb-3 text-white">¿Te interesa?</h3>
-          <p className="text-gray-400 text-sm mb-6 leading-relaxed">Podemos adaptar esta solución exactamente a tu modelo de negocio.</p>
+          <h3 className="text-xl font-bold mb-3 text-white">{tFront.interest}</h3>
+          <p className="text-gray-400 text-sm mb-6 leading-relaxed">{tFront.subtitle}</p>
           <a 
-            href={`https://wa.me/5493482277706?text=Hola,%20estoy%20interesado%20en%20la%20soluci%C3%B3n:%20${encodeURIComponent(item.title)}`}
+            href={`https://wa.me/5493482277706?text=${lang === 'en' ? 'Hi, I am interested in the solution: ' : 'Hola, estoy interesado en la solución: '}${encodeURIComponent(item.title)}`}
             target="_blank"
             rel="noreferrer"
             className="w-full py-3.5 bg-[#25D366] text-black font-bold rounded-xl hover:bg-[#20b858] transition-colors shadow-[0_0_20px_rgba(37,211,102,0.3)]"
             onClick={(e) => e.stopPropagation()}
           >
-            Contactanos por WhatsApp
+            {tFront.cta}
           </a>
         </div>
 
@@ -166,8 +193,14 @@ function SolutionCard({ item }) {
   );
 }
 
-export default function SolutionsCarousel() {
+export default function SolutionsCarousel({ lang = 'es' }) {
   const scrollRef = useRef(null);
+
+  const solutions = lang === 'en' ? solutionsEn : solutionsEs;
+  const title = lang === 'en' ? "Tailor-Made Solutions" : "Soluciones a tu Medida";
+  const desc = lang === 'en' 
+    ? "From your neighborhood store to municipalities and institutions. We build the exact platform you need to scale." 
+    : "Desde el kiosco de tu barrio hasta municipios e instituciones. Construimos la plataforma exacta que necesitas para escalar.";
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -182,11 +215,10 @@ export default function SolutionsCarousel() {
       <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="text-left">
           <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
-            Soluciones a tu Medida
+            {title}
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl">
-            Desde el kiosco de tu barrio hasta municipios e instituciones. 
-            Construimos la plataforma exacta que necesitas para escalar.
+            {desc}
           </p>
         </div>
         
@@ -217,7 +249,7 @@ export default function SolutionsCarousel() {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => (
-            <SolutionCard key={index} item={item} />
+            <SolutionCard key={index} item={item} lang={lang} />
           ))}
         </div>
       </div>
