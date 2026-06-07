@@ -4,8 +4,8 @@ import { supabase } from '../lib/supabase';
 
 const t = {
   es: {
-    title: "¿TENÉS UN PROBLEMA QUE NINGÚN SOFTWARE RESUELVE BIEN?",
-    subtitle: "Nosotros construimos la herramienta que necesitás. A veces es una página web. A veces una automatización. A veces un sistema completo. Lo importante es que funcione para vos. Primera consulta y evaluación inicial sin costo.",
+    title: "Contanos tu idea y nosotros la hacemos realidad.",
+    subtitle: "Si querés construir tu sistema a medida, página web o automatización, contactate con nosotros. Elegí el canal que te resulte más cómodo.",
     chatTitle: "Chat Rápido",
     chatDesc: "¿Tenés una duda rápida o querés contarnos tu idea por audio? Escribinos directo a nuestro WhatsApp corporativo y te contestamos al instante.",
     whatsappBtn: "Escribinos por WhatsApp",
@@ -33,8 +33,8 @@ const t = {
     whatsappUrlText: "Hola, me interesa contactarlos para un proyecto."
   },
   en: {
-    title: "HAVE A PROBLEM NO SOFTWARE CAN SOLVE WELL?",
-    subtitle: "We build the tool you need. Sometimes it's a website. Sometimes an automation. Sometimes a complete system. The important thing is that it works for you. First consultation and initial evaluation at no cost.",
+    title: "Tell us your idea and we'll make it a reality.",
+    subtitle: "If you want to build your custom system, website, or automation, contact us. Choose the channel that suits you best.",
     chatTitle: "Quick Chat",
     chatDesc: "Do you have a quick question or want to pitch us your idea via audio? Message us directly on our corporate WhatsApp and we'll reply instantly.",
     whatsappBtn: "Message us on WhatsApp",

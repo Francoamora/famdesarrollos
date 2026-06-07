@@ -272,17 +272,14 @@ export default function SolutionsCarousel({ lang = 'es' }) {
 
       {/* Excel Banner */}
       <div className="max-w-4xl mx-auto px-4 mt-8 pb-12" data-aos="fade-up">
-        <div className="bg-gradient-to-br from-cyan-900/30 to-[#111] border border-cyan-500/20 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-10">
-            <Sparkles size={120} className="text-cyan-400" />
-          </div>
+        <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 relative z-10 uppercase tracking-tight">
             {lang === 'en' ? "ALREADY HAVE INFO IN EXCEL?" : "¿YA TENÉS INFORMACIÓN EN EXCEL?"}
           </h3>
           <p className="text-cyan-400 font-bold mb-4 relative z-10">
             {lang === 'en' ? "Don't worry." : "No te preocupes."}
           </p>
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed relative z-10 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed relative z-10 max-w-2xl mx-auto">
             {lang === 'en' 
               ? "We take care of migrating your data so you can start using your new platform from day one, keeping clients, products, history, and important records."
               : "Nos encargamos de migrar tus datos para que puedas comenzar a utilizar tu nueva plataforma desde el primer día, conservando clientes, productos, historial y registros importantes."}
