@@ -240,8 +240,8 @@ export default function SolutionsCarousel({ lang = 'es' }) {
       </div>
 
       <div className="relative w-full max-w-[1400px] mx-auto">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#030303] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#030303] to-transparent z-10 pointer-events-none"></div>
+        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#030303] to-transparent z-10 pointer-events-none"></div>
+        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#030303] to-transparent z-10 pointer-events-none"></div>
 
         <div 
           ref={scrollRef}
@@ -252,6 +252,14 @@ export default function SolutionsCarousel({ lang = 'es' }) {
             <SolutionCard key={index} item={item} lang={lang} />
           ))}
         </div>
+      </div>
+
+      <div className="md:hidden text-center mt-2 px-4">
+        <p className="text-cyan-400 text-xs tracking-wide uppercase bg-white/5 border border-white/10 py-3 rounded-xl mx-auto inline-block px-6 opacity-80">
+          {lang === 'en' 
+            ? "← Swipe to explore | Tap a card to contact us →" 
+            : "← Deslizá para explorar | Tocá una tarjeta para contactarnos →"}
+        </p>
       </div>
     </section>
   );
