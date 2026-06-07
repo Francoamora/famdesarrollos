@@ -11,16 +11,16 @@ export const ui = {
     'nav.services': 'Servicios',
     'nav.projects': 'Proyectos',
     'nav.contact': 'Contacto',
-    'hero.title': 'Hacemos realidad tu próxima gran idea.',
-    'hero.subtitle': 'Especialistas en desarrollo SaaS, sistemas financieros a medida y experiencias web de vanguardia.',
+    'hero.title': 'Hacemos que la tecnología trabaje para vos.',
+    'hero.subtitle': 'Creamos sistemas, plataformas y herramientas digitales que ayudan a empresas, comercios, profesionales e instituciones a ahorrar tiempo, organizar procesos y crecer de forma más eficiente. Desde pequeños negocios hasta municipios, desarrollamos soluciones adaptadas a cada necesidad, sin funciones innecesarias ni complicaciones.',
   },
   en: {
     'nav.home': 'Home',
     'nav.services': 'Services',
     'nav.projects': 'Projects',
     'nav.contact': 'Contact Us',
-    'hero.title': 'We turn your next big idea into reality.',
-    'hero.subtitle': 'Specialists in SaaS development, custom financial systems, and cutting-edge web experiences.',
+    'hero.title': 'We make technology work for you.',
+    'hero.subtitle': 'We create systems, platforms, and digital tools that help businesses, professionals, and institutions save time, organize processes, and grow more efficiently. From small businesses to municipalities, we develop custom solutions with no unnecessary features or complications.',
   },
 } as const;
 

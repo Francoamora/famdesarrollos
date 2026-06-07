@@ -1,105 +1,113 @@
 import React, { useRef, useState } from 'react';
-import { ShoppingBag, Store, Building2, LayoutTemplate, Settings, Briefcase, Users, HeartPulse, Home, Utensils, Dumbbell, Bot } from 'lucide-react';
+import { ShoppingBag, Store, Building2, LayoutTemplate, Settings, Briefcase, Users, HeartPulse, Home, Utensils, Dumbbell, Bot, Sparkles, Code } from 'lucide-react';
 
 const solutionsEs = [
   {
-    icon: ShoppingBag, color: 'cyan', title: 'Tu tienda 24/7',
-    desc: 'Vendé en piloto automático. E-commerce rápido, carrito de compras optimizado y pasarelas de pago integradas.'
+    icon: ShoppingBag, color: 'cyan', title: 'Tu Tienda Online',
+    desc: 'Vendé las 24 horas con una plataforma rápida, moderna y optimizada para generar más ventas.'
   },
   {
     icon: Store, color: 'orange', title: 'Locales Comerciales',
-    desc: 'Tené el control total de tu negocio. Gestión de stock en tiempo real, alertas de inventario y facturación fácil para que nada se te escape.'
+    desc: 'Controlá ventas, stock, proveedores, gastos y movimientos desde un único lugar.'
   },
   {
     icon: Bot, color: 'indigo', title: 'Automatización de Procesos',
-    desc: 'Olvidate de las tareas repetitivas. Sincronizamos tus herramientas y automatizamos respuestas frecuentes para que tu equipo se enfoque en lo importante.'
+    desc: 'Reducí tareas repetitivas y eliminá errores operativos automatizando procesos clave de tu negocio.'
   },
   {
     icon: Users, color: 'red', title: 'Clubes y Asociaciones',
-    desc: '¿Tenés un club? Administrá el alta de socios, cobro de cuotas, reserva de turnos y gestión de inversiones en un solo lugar.'
+    desc: 'Gestioná socios, cuotas, reservas, actividades y documentación de manera simple y organizada.'
   },
   {
-    icon: Dumbbell, color: 'lime', title: 'Gimnasios y Centros',
-    desc: 'Controlá membresías, cobros mensuales, rutinas y los accesos de tus alumnos de forma 100% automatizada.'
+    icon: Dumbbell, color: 'lime', title: 'Gimnasios y Centros Deportivos',
+    desc: 'Administrá membresías, pagos, asistencia y acceso de alumnos desde cualquier dispositivo.'
   },
   {
-    icon: Building2, color: 'emerald', title: 'Instituciones y Finanzas',
-    desc: 'Sistemas robustos para mantener en orden instituciones, municipios y la gestión de finanzas complejas.'
+    icon: Building2, color: 'emerald', title: 'Instituciones y Organismos Públicos',
+    desc: 'Soluciones para administración financiera, compras, gestión documental y trazabilidad de procesos.'
   },
   {
     icon: HeartPulse, color: 'rose', title: 'Clínicas y Consultorios',
-    desc: 'Gestión inteligente de turnos médicos, historias clínicas digitales y recordatorios automáticos para pacientes.'
+    desc: 'Turnos online, historias clínicas digitales, recordatorios automáticos y gestión integral de pacientes.'
+  },
+  {
+    icon: Sparkles, color: 'pink', title: 'Barberías y Estética',
+    desc: 'Gestioná turnos, agenda, clientes, recordatorios automáticos y servicios desde una plataforma simple y moderna.'
   },
   {
     icon: LayoutTemplate, color: 'purple', title: 'Landing Pages',
-    desc: 'Diseño de alto impacto enfocado 100% en conversión. Transformamos visitas fugaces en clientes fieles.'
+    desc: 'Diseñadas para captar atención, generar confianza y convertir visitantes en clientes.'
   },
   {
     icon: Home, color: 'teal', title: 'Inmobiliarias',
-    desc: 'Catálogos dinámicos de propiedades, gestión integral de alquileres y automatización de contratos para tu agencia.'
+    desc: 'Gestión de propiedades, alquileres, contratos y clientes en una única plataforma.'
   },
   {
-    icon: Utensils, color: 'yellow', title: 'Gastronomía Moderna',
-    desc: 'Menú digital con QR, toma de pedidos ágil, integración con cocina y control de mesas en tiempo real.'
+    icon: Utensils, color: 'yellow', title: 'Gastronomía',
+    desc: 'Menús digitales, pedidos, control de mesas y herramientas para optimizar la operación diaria.'
   },
   {
-    icon: Briefcase, color: 'pink', title: 'Profesionales Independientes',
-    desc: '¿Sos contador, abogado o especialista? Desarrollamos herramientas a medida para ordenar tu información y gestionar a tus clientes.'
+    icon: Briefcase, color: 'blue', title: 'Profesionales Independientes',
+    desc: 'Herramientas para contadores, abogados, arquitectos, consultores y especialistas que buscan ordenar su trabajo.'
   },
   {
-    icon: Settings, color: 'blue', title: 'Lo imaginás, lo armamos',
-    desc: 'Sistemas a medida adaptados al 100% a las reglas de tu negocio. Arquitectura escalable y sin límites.'
+    icon: Code, color: 'cyan', title: 'Software a Medida',
+    desc: 'Si ninguna solución existente resuelve exactamente lo que necesitás, construimos una desde cero.'
   }
 ];
 
 const solutionsEn = [
   {
-    icon: ShoppingBag, color: 'cyan', title: 'Your 24/7 Store',
-    desc: 'Sell on autopilot. Fast e-commerce, optimized shopping cart, and integrated payment gateways.'
+    icon: ShoppingBag, color: 'cyan', title: 'Your Online Store',
+    desc: 'Sell 24/7 with a fast, modern platform optimized to generate more sales.'
   },
   {
     icon: Store, color: 'orange', title: 'Retail Stores',
-    desc: 'Take full control of your business. Real-time inventory management, stock alerts, and easy billing so nothing slips away.'
+    desc: 'Control sales, inventory, suppliers, expenses, and movements all from one place.'
   },
   {
     icon: Bot, color: 'indigo', title: 'Process Automation',
-    desc: 'Forget repetitive tasks. We sync your tools and automate frequent responses so your team focuses on what matters.'
+    desc: 'Reduce repetitive tasks and eliminate operational errors by automating key business processes.'
   },
   {
     icon: Users, color: 'red', title: 'Clubs and Associations',
-    desc: 'Running a club? Manage member registration, fee collection, bookings, and investments all in one place.'
+    desc: 'Manage members, fees, bookings, activities, and documentation in a simple and organized way.'
   },
   {
-    icon: Dumbbell, color: 'lime', title: 'Gyms & Fitness Centers',
-    desc: 'Control memberships, monthly payments, routines, and student access in a 100% automated way.'
+    icon: Dumbbell, color: 'lime', title: 'Gyms & Sports Centers',
+    desc: 'Manage memberships, payments, attendance, and student access from any device.'
   },
   {
-    icon: Building2, color: 'emerald', title: 'Institutions & Finance',
-    desc: 'Robust systems to keep institutions, municipalities, and complex financial management in perfect order.'
+    icon: Building2, color: 'emerald', title: 'Institutions & Public Agencies',
+    desc: 'Solutions for financial administration, purchasing, document management, and process traceability.'
   },
   {
     icon: HeartPulse, color: 'rose', title: 'Clinics & Practices',
-    desc: 'Smart medical appointment management, digital health records, and automated patient reminders.'
+    desc: 'Online appointments, digital medical records, automatic reminders, and comprehensive patient management.'
+  },
+  {
+    icon: Sparkles, color: 'pink', title: 'Barbershops & Beauty Salons',
+    desc: 'Manage appointments, schedule, clients, automatic reminders, and services from a simple and modern platform.'
   },
   {
     icon: LayoutTemplate, color: 'purple', title: 'Landing Pages',
-    desc: 'High-impact design focused 100% on conversion. We transform brief visits into loyal customers.'
+    desc: 'Designed to capture attention, build trust, and turn visitors into customers.'
   },
   {
     icon: Home, color: 'teal', title: 'Real Estate',
-    desc: 'Dynamic property catalogs, comprehensive rental management, and automated contracts for your agency.'
+    desc: 'Property management, rentals, contracts, and clients on a single platform.'
   },
   {
-    icon: Utensils, color: 'yellow', title: 'Modern Gastronomy',
-    desc: 'Digital QR menus, agile ordering, kitchen integration, and real-time table control.'
+    icon: Utensils, color: 'yellow', title: 'Gastronomy',
+    desc: 'Digital menus, orders, table control, and tools to optimize daily operations.'
   },
   {
-    icon: Briefcase, color: 'pink', title: 'Independent Professionals',
-    desc: 'Are you an accountant, lawyer, or specialist? We develop custom tools to organize your info and manage clients.'
+    icon: Briefcase, color: 'blue', title: 'Independent Professionals',
+    desc: 'Tools for accountants, lawyers, architects, consultants, and specialists looking to organize their work.'
   },
   {
-    icon: Settings, color: 'blue', title: 'You Imagine It, We Build It',
-    desc: 'Custom systems adapted 100% to your business rules. Scalable architecture with no limits.'
+    icon: Code, color: 'cyan', title: 'Custom Software',
+    desc: 'If no existing solution exactly solves what you need, we build one from scratch.'
   }
 ];
 
@@ -197,10 +205,10 @@ export default function SolutionsCarousel({ lang = 'es' }) {
   const scrollRef = useRef(null);
 
   const solutions = lang === 'en' ? solutionsEn : solutionsEs;
-  const title = lang === 'en' ? "Tailor-Made Solutions" : "Soluciones a tu Medida";
+  const title = lang === 'en' ? "SOLUTIONS ADAPTED TO EVERY REALITY" : "SOLUCIONES ADAPTADAS A CADA REALIDAD";
   const desc = lang === 'en' 
-    ? "From your neighborhood store to municipalities and institutions. We build the exact platform you need to scale." 
-    : "Desde el kiosco de tu barrio hasta municipios e instituciones. Construimos la plataforma exacta que necesitas para escalar.";
+    ? "It doesn't matter if you have a startup, an SME, an institution or a public agency. We design tools that adapt to the way you work." 
+    : "No importa si tenés un emprendimiento, una pyme, una institución o un organismo público. Diseñamos herramientas que se adaptan a tu forma de trabajar.";
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -211,10 +219,10 @@ export default function SolutionsCarousel({ lang = 'es' }) {
   };
 
   return (
-    <section id="servicios" className="w-full py-24 border-y border-white/5 bg-[#030303] relative">
+    <section id="servicios" className="w-full pt-24 pb-12 border-y border-white/5 bg-[#030303] relative">
       <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="text-left">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tight">
             {title}
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl">
@@ -254,13 +262,34 @@ export default function SolutionsCarousel({ lang = 'es' }) {
         </div>
       </div>
 
-      <div className="md:hidden text-center mt-2 px-4">
+      <div className="md:hidden text-center mt-2 px-4 mb-12">
         <p className="text-cyan-400 text-xs tracking-wide uppercase bg-white/5 border border-white/10 py-3 rounded-xl mx-auto inline-block px-6 opacity-80">
           {lang === 'en' 
             ? "← Swipe to explore | Tap a card to contact us →" 
             : "← Deslizá para explorar | Tocá una tarjeta para contactarnos →"}
         </p>
       </div>
+
+      {/* Excel Banner */}
+      <div className="max-w-4xl mx-auto px-4 mt-8 pb-12" data-aos="fade-up">
+        <div className="bg-gradient-to-br from-cyan-900/30 to-[#111] border border-cyan-500/20 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-8 opacity-10">
+            <Sparkles size={120} className="text-cyan-400" />
+          </div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 relative z-10 uppercase tracking-tight">
+            {lang === 'en' ? "ALREADY HAVE INFO IN EXCEL?" : "¿YA TENÉS INFORMACIÓN EN EXCEL?"}
+          </h3>
+          <p className="text-cyan-400 font-bold mb-4 relative z-10">
+            {lang === 'en' ? "Don't worry." : "No te preocupes."}
+          </p>
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed relative z-10 max-w-2xl mx-auto">
+            {lang === 'en' 
+              ? "We take care of migrating your data so you can start using your new platform from day one, keeping clients, products, history, and important records."
+              : "Nos encargamos de migrar tus datos para que puedas comenzar a utilizar tu nueva plataforma desde el primer día, conservando clientes, productos, historial y registros importantes."}
+          </p>
+        </div>
+      </div>
+
     </section>
   );
 }

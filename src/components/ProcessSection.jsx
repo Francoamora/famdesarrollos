@@ -10,56 +10,56 @@ export default function ProcessSection({ lang = 'es' }) {
         {
           id: "01",
           icon: <Search className="w-6 h-6" />,
-          title: "Estrategia",
-          desc: "Entendemos a fondo tu negocio, analizamos a tus competidores y armamos la hoja de ruta exacta para tu proyecto."
+          title: "Descubrimiento",
+          desc: "Analizamos tu negocio, detectamos oportunidades de mejora y definimos la mejor solución para tus necesidades."
         },
         {
           id: "02",
           icon: <PenTool className="w-6 h-6" />,
-          title: "Diseño Visual",
-          desc: "Creamos interfaces súper modernas y prototipos interactivos. Vas a ver el producto antes de que escribamos una sola línea de código."
+          title: "Diseño",
+          desc: "Diseñamos experiencias intuitivas y prototipos para validar cada idea antes del desarrollo."
         },
         {
           id: "03",
           icon: <Code2 className="w-6 h-6" />,
           title: "Desarrollo",
-          desc: "Programamos código limpio, seguro y escalable. Utilizamos exactamente las mismas tecnologías que las empresas líderes mundiales."
+          desc: "Construimos una plataforma segura, rápida y preparada para crecer junto a tu organización."
         },
         {
           id: "04",
           icon: <Rocket className="w-6 h-6" />,
-          title: "Lanzamiento",
-          desc: "Subimos tu plataforma a servidores ultrarrápidos y nos encargamos del monitoreo. Tu única preocupación será atender a tus clientes."
+          title: "Implementación",
+          desc: "Realizamos pruebas, puesta en producción y acompañamiento para que todo funcione correctamente desde el primer día."
         }
       ]
     },
     en: {
-      title: "How We Work",
+      title: "Our Process",
       subtitle: "We use an agile and transparent methodology to guarantee incredible results, with no surprises.",
       steps: [
         {
           id: "01",
           icon: <Search className="w-6 h-6" />,
-          title: "Strategy",
-          desc: "We deeply understand your business, analyze your competitors, and build the exact roadmap for your project."
+          title: "Discovery",
+          desc: "We analyze your business, identify opportunities for improvement, and define the best solution for your needs."
         },
         {
           id: "02",
           icon: <PenTool className="w-6 h-6" />,
-          title: "Visual Design",
-          desc: "We create ultra-modern interfaces and interactive prototypes. You'll see and feel the product before we write a single line of code."
+          title: "Design",
+          desc: "We design intuitive experiences and prototypes to validate every idea before development."
         },
         {
           id: "03",
           icon: <Code2 className="w-6 h-6" />,
           title: "Development",
-          desc: "We program clean, secure, and scalable code. We use exactly the same technologies and quality standards as leading tech companies."
+          desc: "We build a secure, fast platform ready to grow alongside your organization."
         },
         {
           id: "04",
           icon: <Rocket className="w-6 h-6" />,
-          title: "Launch",
-          desc: "We deploy your platform on ultra-fast servers and continuously monitor everything. Your only worry will be handling your new customers."
+          title: "Implementation",
+          desc: "We handle testing, deployment, and support so everything works perfectly from day one."
         }
       ]
     }
