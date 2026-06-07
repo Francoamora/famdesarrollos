@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send, CheckCircle2, Zap } from 'lucide-react';
+import { MessageCircle, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function ContactSection() {
@@ -76,57 +76,57 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contacto" class="w-full max-w-7xl mx-auto py-32 px-4">
-      <div class="mb-16 text-center max-w-3xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-white">Contanos tu idea y nosotros la hacemos realidad.</h2>
-        <p class="text-xl text-gray-400 font-light">Elegí el canal que te resulte más cómodo. Hablá directo con nosotros por WhatsApp para una respuesta rápida o dejanos los detalles de tu proyecto y armamos una propuesta.</p>
+    <section id="contacto" className="w-full max-w-7xl mx-auto py-32 px-4">
+      <div className="mb-16 text-center max-w-3xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-white">Contanos tu idea y nosotros la hacemos realidad.</h2>
+        <p className="text-xl text-gray-400 font-light">Elegí el canal que te resulte más cómodo. Hablá directo con nosotros por WhatsApp para una respuesta rápida o dejanos los detalles de tu proyecto y armamos una propuesta.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12 relative">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12 relative">
         {/* Background glow behind the entire section */}
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/10 via-transparent to-transparent -z-10 blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/10 via-transparent to-transparent -z-10 blur-3xl pointer-events-none"></div>
 
         {/* Left Column: WhatsApp / Direct Contact (2 columns wide) */}
-        <div class="md:col-span-2 flex flex-col justify-between space-y-8">
-          <div class="bg-gradient-to-b from-green-500/10 to-transparent border border-green-500/20 rounded-3xl p-8 lg:p-10 relative overflow-hidden group">
-            <div class="absolute -right-10 -top-10 text-green-500/10 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 pointer-events-none">
+        <div className="md:col-span-2 flex flex-col justify-between space-y-8">
+          <div className="bg-gradient-to-b from-green-500/10 to-transparent border border-green-500/20 rounded-3xl p-8 lg:p-10 relative overflow-hidden group">
+            <div className="absolute -right-10 -top-10 text-green-500/10 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 pointer-events-none">
               <MessageCircle size={150} />
             </div>
             
-            <div class="relative z-10">
-              <div class="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-green-400 mb-6 border border-green-500/30">
+            <div className="relative z-10">
+              <div className="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-green-400 mb-6 border border-green-500/30">
                 <MessageCircle size={28} />
               </div>
-              <h3 class="text-2xl font-bold mb-4">Chat Rápido</h3>
-              <p class="text-gray-400 text-sm leading-relaxed mb-8">
+              <h3 className="text-2xl font-bold mb-4">Chat Rápido</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-8">
                 ¿Tenés una duda rápida o querés contarnos tu idea por audio? Escribinos directo a nuestro WhatsApp corporativo y te contestamos al instante.
               </p>
               
-              {/* WhatsApp Link - We will wire the exact number later */}
-              <a href="https://wa.me/123456789" class="font-sans w-full inline-flex justify-center items-center gap-3 bg-[#25D366] text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#20b858] transition-colors shadow-[0_0_20px_rgba(37,211,102,0.3)]">
+              {/* WhatsApp Link */}
+              <a href="https://wa.me/5493482277706" target="_blank" rel="noreferrer" className="w-full inline-flex justify-center items-center gap-3 bg-[#25D366] text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#20b858] transition-colors shadow-[0_0_20px_rgba(37,211,102,0.3)]">
                 Escribinos por WhatsApp
               </a>
             </div>
           </div>
 
-          <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-8 lg:p-10 flex-grow flex flex-col justify-center">
-            <h4 class="font-bold text-lg mb-2 flex items-center gap-2"><Zap size={18} class="text-yellow-400" /> Sin compromisos</h4>
-            <p class="text-gray-400 text-sm">
+          <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 lg:p-10 flex-grow flex flex-col justify-center">
+            <h4 className="font-bold text-lg mb-2 flex items-center gap-2"><Zap size={18} className="text-yellow-400" /> Sin compromisos</h4>
+            <p className="text-gray-400 text-sm">
               Toda primera consulta, auditoría de tu código actual o estimación inicial es 100% gratuita. Analizamos tu problema y te decimos honestamente si podemos sumar valor.
             </p>
           </div>
         </div>
 
         {/* Right Column: Contact Form (3 columns wide) */}
-        <div class="md:col-span-3 bg-white border border-gray-200 rounded-3xl p-8 lg:p-10 relative overflow-hidden shadow-[0_20px_60px_rgba(255,255,255,0.05)]">
+        <div className="md:col-span-3 bg-white border border-gray-200 rounded-3xl p-8 lg:p-10 relative overflow-hidden shadow-[0_20px_60px_rgba(255,255,255,0.05)]">
 
           
-          <h3 class="text-2xl font-bold mb-2 relative z-10 text-black">Contanos los detalles</h3>
-          <p class="text-gray-500 text-sm mb-8 relative z-10">Completá este formulario y nos pondremos en contacto con vos en menos de 24 horas.</p>
+          <h3 className="text-2xl font-bold mb-2 relative z-10 text-black">Contanos los detalles</h3>
+          <p className="text-gray-500 text-sm mb-8 relative z-10">Completá este formulario y nos pondremos en contacto con vos en menos de 24 horas.</p>
 
-          <form onSubmit={handleSubmit} class="space-y-6 relative z-10">
+          <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
             {/* Honeypot hidden field */}
-            <div class="hidden" aria-hidden="true" style={{ opacity: 0, position: 'absolute', zIndex: -10 }}>
+            <div className="hidden" aria-hidden="true" style={{ opacity: 0, position: 'absolute', zIndex: -10 }}>
               <label htmlFor="bot_field">No llenar este campo</label>
               <input 
                 type="text" 
@@ -139,10 +139,10 @@ export default function ContactSection() {
               />
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Name */}
-              <div class="space-y-2">
-                <label htmlFor="name" class="block text-sm font-medium text-gray-700">Nombre completo</label>
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre completo</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -151,13 +151,13 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Ej: Juan Pérez"
-                  class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                 />
               </div>
 
               {/* Email */}
-              <div class="space-y-2">
-                <label htmlFor="email" class="block text-sm font-medium text-gray-700">Email de contacto</label>
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email de contacto</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -166,14 +166,14 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="juan@empresa.com"
-                  class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                 />
               </div>
             </div>
 
             {/* Phone */}
-            <div class="space-y-2">
-              <label htmlFor="phone" class="block text-sm font-medium text-gray-700">Número de WhatsApp</label>
+            <div className="space-y-2">
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Número de WhatsApp</label>
               <input 
                 type="tel" 
                 id="phone" 
@@ -182,13 +182,13 @@ export default function ContactSection() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Ej: +54 9 11 2345 6789"
-                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
               />
             </div>
 
             {/* Project Details */}
-            <div class="space-y-2">
-              <label htmlFor="message" class="block text-sm font-medium text-gray-700">¿De qué trata tu proyecto?</label>
+            <div className="space-y-2">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">¿De qué trata tu proyecto?</label>
               <textarea 
                 id="message" 
                 name="message" 
@@ -197,13 +197,13 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Contanos un poco sobre tu idea, qué problema querés resolver o qué tecnología estás buscando implementar..."
-                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
               ></textarea>
             </div>
 
             {/* Math Challenge */}
-            <div class="space-y-2 bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <label htmlFor="math_answer" class="text-sm font-medium text-gray-700">
+            <div className="space-y-2 bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <label htmlFor="math_answer" className="text-sm font-medium text-gray-700">
                 Para verificar que sos humano: <strong>¿Cuánto es {mathA} + {mathB}?</strong>
               </label>
               <input 
@@ -216,7 +216,7 @@ export default function ContactSection() {
                 value={mathAnswer}
                 onChange={(e) => setMathAnswer(e.target.value)}
                 placeholder="Resultado"
-                class="w-32 bg-white border border-gray-200 rounded-lg px-4 py-2 text-black focus:outline-none focus:border-cyan-500 transition-all text-center font-bold"
+                className="w-32 bg-white border border-gray-200 rounded-lg px-4 py-2 text-black focus:outline-none focus:border-cyan-500 transition-all text-center font-bold"
               />
             </div>
 
@@ -224,18 +224,18 @@ export default function ContactSection() {
             <button 
               type="submit" 
               disabled={status !== 'idle'}
-              class={`font-sans w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg text-black transition-all ${
-                status === 'success' ? 'bg-green-500' : 'bg-cyan-500 hover:bg-cyan-400 hover:scale-[1.02]'
+              className={`w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg text-black transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] ${
+                status === 'success' ? 'bg-green-500 shadow-[0_0_20px_rgba(34,197,94,0.3)]' : 'bg-cyan-500 hover:bg-cyan-400 hover:scale-[1.02]'
               } ${status === 'submitting' ? 'opacity-80 cursor-not-allowed' : ''}`}
             >
               {status === 'idle' && (
-                <>Enviar Solicitud <Send size={18} /></>
+                <>Enviar Solicitud <ArrowRight size={20} /></>
               )}
               {status === 'submitting' && (
-                <span class="flex items-center gap-2">
-                  <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <span className="flex items-center gap-2">
+                  <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                   Procesando...
                 </span>
